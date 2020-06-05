@@ -1,2 +1,17 @@
+import re
+
 def count_words(sentence):
-    pass
+    sentence = sentence.lower()
+    dividers = r"[,.:_!&@$%^-](\s|)| "
+    word_list = re.split(dividers, sentence)
+
+    result = {}
+    for word in word_list:
+        if not word:
+            pass
+        else:
+            regex = r"^'*|'*$"
+            clean = re.sub(regex, "", word, 0)
+            result[clean] = result.get(clean, 0) + 1
+
+    return result
