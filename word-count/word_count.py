@@ -2,12 +2,12 @@ import re
 
 def count_words(sentence):
     sentence = sentence.lower()
-    dividers = r"[,.:_!&@$%^-](\s|)| "
+    dividers = r"[,.:_!&@$%^-](\s|)|\s"
     word_list = re.split(dividers, sentence)
 
     result = {}
     for word in word_list:
-        if not word:
+        if not word or word == " ":
             pass
         else:
             regex = r"^'*|'*$"
